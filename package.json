@@ -1,1 +1,40 @@
-{     "devDependencies": {         "gdal": "*",         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmtest-gdal",     "homepage": "https://github.com/npmtest/node-npmtest-gdal",     "repository": {         "type": "git",         "url": "https://github.com/npmtest/node-npmtest-gdal.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "#### basic test coverage for  [gdal (v0.9.4)](https://github.com/naturalatlas/node-gdal#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-gdal.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-gdal) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-gdal.svg)](https://travis-ci.org/npmtest/node-npmtest-gdal)",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "gdal": "*",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmtest/node-npmtest-gdal",
+    "keywords": [
+        "coverage",
+        "test",
+        "gdal"
+    ],
+    "license": "MIT",
+    "main": "lib.npmtest_gdal.js",
+    "name": "npmtest-gdal",
+    "nameAlias": "npmtest_gdal",
+    "nameOriginal": "npmtest-gdal",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmtest/node-npmtest-gdal.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "npm install \"kaizhu256/node-utility2#alpha\" && utility2 shDeployHeroku",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "start": "PORT=${PORT:-8080} utility2 start test.js",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
